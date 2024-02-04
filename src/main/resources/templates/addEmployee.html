@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Employee</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+Add Employee <br>
+<form method="post" action="/employees/add" enctype="multipart/form-data">
+    Name: <input type="text" name="name"><br>
+    Surname: <input type="text" name="surname"><br>
+    Email: <input type="text" name="email"> <br>
+    Company:<select name="company.id">
+    <option th:each="company: ${companies}" th:text="${company.name}" th:value="${company.id}">
+    </option>
+</select> <br>
+    Picture: <input type="file" name="picture"><br>
+    <input type="submit" value="Add">
+</form>
+</body>
+</html>
